@@ -24,18 +24,21 @@ class Login extends CI_Controller {
 				
     }
 	
-    /**
-     * Index Page for this controller.
-     */
+    /*
+	*
+    * Index Page for this controller.
+    */
 	 
     public function index()
     {
         $this->isLoggedIn();
     }
     
-    /**
+    /*
+	 *
      * This function used to check the user is logged in or not
      */
+	 
     function isLoggedIn()
     {
         $isLoggedIn = $this->session->userdata('isLoggedIn');
@@ -52,9 +55,11 @@ class Login extends CI_Controller {
     }
     
     
-    /**
+    /*
+	 *
      * This function used to logged in user
      */
+	 
     public function loginMe()
     {
         $this->load->library('form_validation');
@@ -105,7 +110,8 @@ class Login extends CI_Controller {
             }
         }
     }
-    /**
+    /*
+	 *
      * This function used to load forgot password view
      */
     public function forgotPassword()
@@ -184,7 +190,8 @@ class Login extends CI_Controller {
                 $status = 'invalid';
                 setFlashData($status, "This email is not registered with us.");
             }
-            redirect('/forgotPassword');
+            //redirect('/forgotPassword');
+			$this->load->view('forgotPassword');
         }
     }
     /**
@@ -210,6 +217,7 @@ class Login extends CI_Controller {
         else
         {
             redirect('/login');
+			
         }
     }
     

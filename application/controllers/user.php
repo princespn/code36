@@ -44,6 +44,16 @@ class BaseController extends CI_Controller {
 		}
 	}
 	
+	/*
+     * User logout
+     */
+    public function logout(){
+        $this->session->unset_userdata('isLoggedIn');
+        $this->session->unset_userdata('userId');
+        $this->session->sess_destroy();
+        redirect('users/login/');
+    }
+	
 	/**
 	 * This function is used to check the access
 	 */
